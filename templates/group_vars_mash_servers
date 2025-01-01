@@ -181,6 +181,11 @@ mash_playbook_devture_systemd_service_manager_services_list_auto_itemized:
     {{ ({'name': (authentik_worker_identifier + '.service'), 'priority': 2000, 'groups': ['mash', 'authentik']} if authentik_enabled else omit) }}
   # /role-specific:authentik
 
+  # role-specific:odoo
+  - |-
+    {{ ({'name': (odoo_identifier + '.service'), 'priority': 2000, 'groups': ['mash', 'odoo']} if odoo_enabled else omit) }}
+  # /role-specific:odoo
+
   # role-specific:authelia
   - |-
     {{ ({'name': (authelia_identifier + '.service'), 'priority': 2000, 'groups': ['mash', 'authelia']} if authelia_enabled else omit) }}
@@ -732,6 +737,17 @@ mash_playbook_postgres_managed_databases_auto_itemized:
       } if authentik_enabled and authentik_database_hostname == postgres_identifier else omit)
     }}
   # /role-specific:authentik
+
+  # role-specific:odoo
+  - |-
+    {{
+      ({
+        'name': odoo_database_name,
+        'username': odoo_database_username,
+        'password': odoo_database_password,
+      } if odoo_enabled)
+    }}
+  # /role-specific:odoo
 
   # role-specific:focalboard
   - |-

@@ -115,6 +115,10 @@
     - role: galaxy/authentik
     # /role-specific:authentik
 
+    # role-specific:odoo
+    - role: galaxy/odoo
+    # /role-specific:odoo
+
     # role-specific:backup_borg
     - role: galaxy/backup_borg
     # /role-specific:backup_borg
