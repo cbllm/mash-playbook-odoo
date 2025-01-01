@@ -435,3 +435,7 @@
   version: v0.15.0-1
   name: writefreely
   activation_prefix: writefreely_
+- src: git+https://github.com/apexive/ansible-role-odoo.git
+  version: v1.0.7
+  name: odoo
+  activation_prefix: odoo_
